@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Resume in LaTeX (US Letter - 8.5x11 in.)  %
+% Author: Duc Vinh Phuc (Benjamin) Nguyen   %
+% Last update: May 13, 2026                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper, 12pt]{article}
+
+%%% --- PACKAGES --- %%%
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[english]{babel}
+\usepackage[margin=0.4in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+%%% --- PAGE SETUP --- %%%
+\pdfgentounicode=1
+
+\color{black}
+
+\urlstyle{same}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% \addtolength{\textwidth}{1.0in}
+
+\raggedbottom
+\raggedright
+\setlength\parindent{0in}
+\setlength\parskip{0.1in}
+
+\titleformat{\section}{
+    \raggedright
+    \large
+    \scshape
+    \vspace{-4pt}
+}{}{0pt}{}[\color{black} \titlerule \vspace{-5pt} \\ \vspace{1pt}]
+
+%%% --- HELPER COMMANDS --- %%%
+
+\newcommand{\mailto}[3]{
+    \href{mailto:#1@#2.#3}{\underline{\strut #1@#2.#3}}%
+}
+
+\newcommand{\customhref}[4][]{
+    \begingroup
+    \ifx &#1&
+        \href{https://#2.#3/#4}{\underline{\strut #2/#4}}%
+    \else
+        \href{https://#2.#3/#1/#4}{\underline{\strut #2/#4}}%
+    \fi
+    \endgroup
+}
+
+%%% --- MAIN DOCUMENT --- %%%
+
+\begin{document}
+
+%%% HEADING %%%
+\begin{center}
+    \Huge {\textbf{\fontsize{28pt}{24pt}\selectfont \scshape Duc Vinh Phuc (Benjamin) Nguyen}}
+    
+    \vspace{-24pt}
+    \makebox[\textwidth][c]{\rule{0.9\textwidth}{2pt}}
+    
+    \vspace{-5pt}
+    \small {
+        % \href{tel:+84903381820}{\underline{\strut (+84) 90 338 1820}}
+        % \;\textbullet\;
+        % \mailto{bn9722}{rit}{edu}
+        % \;\textbullet\;
+        % \customhref[in]{linkedin}{com}{ndvphuc27}
+        % \;\textbullet\;
+        % \customhref{github}{com}{techmoocher}
+        \makebox[\textwidth][c]{
+            \href{tel:+84903381820}{\underline{\strut (+84) 90 338 1820}}
+            \;\textbullet\;
+            \mailto{bn9722}{rit}{edu}
+            \;\textbullet\;
+            \customhref[in]{linkedin}{com}{ndvphuc27}
+            \;\textbullet\;
+            \customhref{github}{com}{techmoocher}
+        }
+    }
+\end{center}
+
+\vspace{-20pt}
+%%% EDUCATION %%%
+\section{Education}
+    test
+
+\end{document}
