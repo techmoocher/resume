@@ -7,15 +7,17 @@
 \documentclass[letterpaper, 12pt]{article}
 
 %%% --- PACKAGES --- %%%
+\usepackage{lmodern}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+
 \usepackage[english]{babel}
 \usepackage[margin=0.4in]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[hidelinks]{hyperref}
 
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
+\usepackage{libertinus}
+% \usepackage[T1]{fontenc}
 
 %%% --- PAGE SETUP --- %%%
 \pdfgentounicode=1
@@ -42,7 +44,7 @@
     \large
     \scshape
     \vspace{-4pt}
-}{}{0pt}{}[\color{black} \titlerule \vspace{-5pt} \\ \vspace{1pt}]
+}{}{0pt}{}[\color{black} \titlerule \vspace{-5pt} \vspace{1pt}]
 
 %%% --- HELPER COMMANDS --- %%%
 
@@ -66,13 +68,13 @@
 
 %%% HEADING %%%
 \begin{center}
-    \Huge {\textbf{\fontsize{28pt}{24pt}\selectfont \scshape Duc Vinh Phuc (Benjamin) Nguyen}}
+    \textbf{\fontsize{25pt}{30pt}\selectfont \scshape Duc Vinh Phuc (Benjamin) Nguyen}
     
-    \vspace{-24pt}
+    \vspace{-10pt}
     \makebox[\textwidth][c]{\rule{0.9\textwidth}{2pt}}
     
-    \vspace{-5pt}
-    \small {
+    \vspace{-6pt}
+    \fontsize{12pt}{14pt}{
         \makebox[\textwidth][c]{
             \href{tel:+84903381820}{\underline{\strut (+84) 90 338 1820}}
             \;\textbullet\;
@@ -88,6 +90,6 @@
 \vspace{-20pt}
 %%% EDUCATION %%%
 \section{Education}
-    test
+    
 
 \end{document}
