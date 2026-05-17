@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Resume in LaTeX (US Letter - 8.5x11 in.)  %
 % Author: Duc Vinh Phuc (Benjamin) Nguyen   %
-% Last update: May 13, 2026                 %
+% Last update: May 17, 2026 (UTC)           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[letterpaper, 12pt]{article}
@@ -10,6 +10,8 @@
 \usepackage{lmodern}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{enumitem}
 
 \usepackage[english]{babel}
 \usepackage[margin=0.4in]{geometry}
@@ -40,19 +42,77 @@
 \setlength\parskip{0.1in}
 
 \titleformat{\section}{
+    \vspace{-1.5em}
     \raggedright
     \large
     \scshape
-    \vspace{-4pt}
-}{}{0pt}{}[\color{black} \titlerule \vspace{-5pt} \vspace{1pt}]
+    \vspace{-0.5em}
+}{}{0pt}{}[\color{black} \titlerule \vspace{-0.5em}]
 
 %%% --- HELPER COMMANDS --- %%%
+\newenvironment{ListHeading}
+{
+    \begin{itemize}[leftmargin=0.1in, label={}]
+}
+{
+    \end{itemize}
+}
+
+\newenvironment{ListSubheading}
+{
+    \begin{itemize}[leftmargin=0.15in, label={}]
+}
+{
+    \end{itemize} \vspace{-0.1em}
+}
+
+\newenvironment{ListContent}
+{
+    \begin{itemize}[leftmargin=0.25in, label=\textbullet]
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\listItemHeading}[2]{
+    \item \vspace{-0.75em}
+    \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
+        \textbf{#1} & #2 \\
+    \end{tabularx} \vspace{-2em}
+}
+
+\newcommand{\listItemHeadingExperience}[4]{
+    \item \vspace{-0.75em}
+    \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
+        \textbf{#1} & #2 \\ \vspace{-1em}
+        \textit{#3} & \textit{#4} \\
+    \end{tabularx} \vspace{-1.5em}
+}
+
+\newcommand{\listItemSubheading}[2]{
+    \item
+    \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
+        #1 & \textit{#2} \\
+        % \textit{#3} & \textit{#4} \\
+    \end{tabularx} \vspace{-1.5em}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\listItemContent}[1]{
+    \item\fontsize{11pt}{13pt}\selectfont{#1} \vspace{-0.2em}
+}
 
 \newcommand{\mailto}[3]{
     \href{mailto:#1@#2.#3}{\underline{\strut #1@#2.#3}}%
 }
 
-\newcommand{\customhref}[4][]{
+\newcommand{\hreftoprofile}[4][]{
     \begingroup
     \ifx &#1&
         \href{https://#2.#3/#4}{\underline{\strut #2/#4}}%
@@ -70,26 +130,62 @@
 \begin{center}
     \textbf{\fontsize{25pt}{30pt}\selectfont \scshape Duc Vinh Phuc (Benjamin) Nguyen}
     
-    \vspace{-10pt}
+    \vspace{-1em}
     \makebox[\textwidth][c]{\rule{0.9\textwidth}{2pt}}
     
-    \vspace{-6pt}
-    \fontsize{12pt}{14pt}{
+    \vspace{-0.5em}
+    \fontsize{11pt}{13pt}\selectfont{
         \makebox[\textwidth][c]{
             \href{tel:+84903381820}{\underline{\strut (+84) 90 338 1820}}
             \;\textbullet\;
             \mailto{bn9722}{rit}{edu}
             \;\textbullet\;
-            \customhref[in]{linkedin}{com}{ndvphuc27}
+            \hreftoprofile[in]{linkedin}{com}{ndvphuc27}
             \;\textbullet\;
-            \customhref{github}{com}{techmoocher}
+            \hreftoprofile{github}{com}{techmoocher}
         }
     }
 \end{center}
 
-\vspace{-20pt}
+\vspace{0em}
 %%% EDUCATION %%%
 \section{Education}
-    
+    \begin{ListHeading}
+        \listItemHeading
+            {Rochester Institute of Technology}{Rochester, NY}
+            \begin{ListSubheading}
+                \listItemSubheading
+                    {Bachelor of Science in Computer Science \textit{(with Honors)}}
+                    {Aug. 2026 -- present}
+                    \begin{ListContent}
+                        \listItemContent
+                        {
+                            \textbf{Achievements:}\
+                            Presidential Scholarship
+                        }
+                    \end{ListContent}
+            \end{ListSubheading}
+        \listItemHeading
+            {VNUHCM High School for the Gifted}{Ho Chi Minh City, VN}
+            \begin{ListSubheading}
+                \listItemSubheading
+                    {National High School Diploma}
+                    {Sep. 2023 -- May 2026}
+                    \begin{ListContent}
+                        \listItemContent
+                        {
+                            \textbf{GPA: }9.5/10.0
+                            \quad
+                            \textbf{APs: }Statistics (5), Calculus BC (5), Computer Science A (5)
+                        }
+                        \listItemContent
+                        {
+                            \textbf{Achievements:}\
+                            Gold Award in HKICO 2025 \textit{(National)},\
+                            Silver Award in HKICO 2025 \textit{(International)}
+                        }
+                    \end{ListContent}
+            \end{ListSubheading}
+    \end{ListHeading}
 
 \end{document}
