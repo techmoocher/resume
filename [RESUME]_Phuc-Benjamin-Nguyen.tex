@@ -7,26 +7,28 @@
 \documentclass[letterpaper, 12pt]{article}
 
 %%% --- PACKAGES --- %%%
-\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
 % \usepackage{tabularx}
 
-\usepackage[english]{babel}
 \usepackage[margin=0.4in]{geometry}
+\usepackage[english]{babel}
+% \usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=true, urlcolor=black, linkcolor=black]{hyperref}
 \usepackage[dvipsnames]{xcolor}
-\usepackage[hidelinks]{hyperref}
 
+\usepackage{lmodern}
 \usepackage{libertinus}
-\usepackage[T1]{fontenc}
 
 %%% --- DOCUMENT SETUP --- %%%
+\input{glyphtounicode}
 \pdfgentounicode=1
 
 \color{black}
-
-\urlstyle{same}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -34,12 +36,12 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% \addtolength{\textwidth}{1.0in}
-
 \raggedbottom
 \raggedright
 \setlength\parindent{0in}
 \setlength\parskip{0.1in}
+
+\urlstyle{same}
 
 \titleformat{\section}{
     \vspace{-1.5em}
@@ -49,7 +51,7 @@
     \vspace{-0.5em}
 }{}{0pt}{}[\color{black} \titlerule \vspace{-1em}]
 
-%%% --- HELPER COMMANDS --- %%%
+%%% --- HELPER ENVIRONMENTS --- %%%
 \newenvironment{ListHeading}{
     \begin{itemize}[
         leftmargin=0.1in, label={},
@@ -71,6 +73,8 @@
     ]
 }{ \end{itemize} }
 
+
+%%% --- HELPER COMMANDS --- %%%
 \newcommand{\listItemHeading}[1]{
     \item
     \textbf{#1}
@@ -100,7 +104,6 @@
 
 \newcommand{\listItemContent}[1]{
     \item \small{#1}
-    % \fontsize{11pt}{13pt}\selectfont{#1}
 }
 
 % \newcommand{\listItemHeading}[2]{
@@ -130,18 +133,18 @@
 %     \item\fontsize{11pt}{13pt}\selectfont{#1} \vspace{-0.2em}
 % }
 
-\newcommand{\mailto}[3]{
+\newcommand{\mailto}[3]{%
     \href{mailto:#1@#2.#3}{\underline{\strut #1@#2.#3}}%
 }
 
-\newcommand{\hreftoprofile}[4][]{
-    \begingroup
-    \ifx &#1&
+\newcommand{\hreftoprofile}[4][]{%
+    \begingroup%
+    \ifx &#1&%
         \href{https://#2.#3/#4}{\underline{\strut #2/#4}}%
-    \else
+    \else%
         \href{https://#2.#3/#1/#4}{\underline{\strut #2/#4}}%
-    \fi
-    \endgroup
+    \fi%
+    \endgroup%
 }
 
 %%% --- MAIN DOCUMENT --- %%%
@@ -159,11 +162,11 @@
     \fontsize{11pt}{13pt}\selectfont{
         \makebox[\textwidth][c]{
             \href{tel:+84903381820}{\underline{\strut (+84) 90 338 1820}}
-            \;\textbullet\;
+            \hspace{0.4em}\textbullet\hspace{0.4em}
             \mailto{bn9722}{rit}{edu}
-            \;\textbullet\;
+            \hspace{0.4em}\textbullet\hspace{0.4em}
             \hreftoprofile[in]{linkedin}{com}{ndvphuc27}
-            \;\textbullet\;
+            \hspace{0.4em}\textbullet\hspace{0.4em}
             \hreftoprofile{github}{com}{techmoocher}
             % \;\textbullet\;
             % \href{https://www.techmoocher.com}{\underline{\strut techmoocher.com}}
