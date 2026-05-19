@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Resume in LaTeX (US Letter - 8.5x11 in.)  %
 % Author: Duc Vinh Phuc (Benjamin) Nguyen   %
-% Last update: May 17, 2026 (UTC)           %
+% Last update: May 19, 2026 (UTC)           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[letterpaper, 12pt]{article}
@@ -10,8 +10,8 @@
 \usepackage{lmodern}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
-\usepackage{tabularx}
 \usepackage{enumitem}
+% \usepackage{tabularx}
 
 \usepackage[english]{babel}
 \usepackage[margin=0.4in]{geometry}
@@ -19,9 +19,9 @@
 \usepackage[hidelinks]{hyperref}
 
 \usepackage{libertinus}
-% \usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 
-%%% --- PAGE SETUP --- %%%
+%%% --- DOCUMENT SETUP --- %%%
 \pdfgentounicode=1
 
 \color{black}
@@ -47,66 +47,88 @@
     \large
     \scshape
     \vspace{-0.5em}
-}{}{0pt}{}[\color{black} \titlerule \vspace{-0.5em}]
+}{}{0pt}{}[\color{black} \titlerule \vspace{-1em}]
 
 %%% --- HELPER COMMANDS --- %%%
-\newenvironment{ListHeading}
-{
-    \begin{itemize}[leftmargin=0.1in, label={}]
-}
-{
-    \end{itemize}
+\newenvironment{ListHeading}{
+    \begin{itemize}[
+        leftmargin=0.1in, label={},
+        itemsep=0.4em, parsep=0pt
+    ]
+}{ \end{itemize} }
+
+\newenvironment{ListSubheading}{
+    \begin{itemize}[
+        leftmargin=0.15in, label={},
+        itemsep=0.2em, parsep=0pt, topsep=-0.5em
+    ]
+}{ \end{itemize} }
+
+\newenvironment{ListContent}{
+    \begin{itemize}[
+        leftmargin=0.2in, label=\textbullet,
+        itemsep=0.15em, parsep=0pt, topsep=0.15em
+    ]
+}{ \end{itemize} }
+
+\newcommand{\listItemHeading}[1]{
+    \item
+    \textbf{#1}
 }
 
-\newenvironment{ListSubheading}
-{
-    \begin{itemize}[leftmargin=0.15in, label={}]
-}
-{
-    \end{itemize} \vspace{-0.1em}
-}
-
-\newenvironment{ListContent}
-{
-    \begin{itemize}[leftmargin=0.25in, label=\textbullet]
-}
-{
-    \end{itemize}
-}
-
-\newcommand{\listItemHeading}[2]{
-    \item \vspace{-0.75em}
-    \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
-        \textbf{#1} & #2 \\
-    \end{tabularx} \vspace{-2em}
+\newcommand{\listItemHeadingEducation}[2]{
+    \item
+    \textbf{#1} \hspace{3em}\hfill #2
 }
 
 \newcommand{\listItemHeadingExperience}[4]{
-    \item \vspace{-0.75em}
-    \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
-        \textbf{#1} & #2 \\ \vspace{-1em}
-        \textit{#3} & \textit{#4} \\
-    \end{tabularx} \vspace{-1.5em}
+    \item
+    \textbf{#1} \hspace{3em}\hfill #2 \\
+    \textit{#3} \hspace{3em}\hfill \textit{#4}
 }
 
-\newcommand{\listItemSubheading}[2]{
+\newcommand{\listItemHeadingProjects}[4]{
     \item
-    \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
-        #1 & \textit{#2} \\
-        % \textit{#3} & \textit{#4} \\
-    \end{tabularx} \vspace{-1.5em}
+    \textbf{\href{https://#4}{#1}}\
+    \textbar \ \textit{#3} \hspace{3em}\hfill #2
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+\newcommand{\listItemSubheading}[3][]{
+    \item[#1]
+    #2 \hfill \textit{#3}
 }
 
 \newcommand{\listItemContent}[1]{
-    \item\fontsize{11pt}{13pt}\selectfont{#1} \vspace{-0.2em}
+    \item \small{#1}
+    % \fontsize{11pt}{13pt}\selectfont{#1}
 }
+
+% \newcommand{\listItemHeading}[2]{
+%     \item \vspace{-0.75em}
+%     \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
+%         \textbf{#1} & #2 \\
+%     \end{tabularx} \vspace{-2em}
+% }
+
+% \newcommand{\listItemHeadingExperience}[4]{
+%     \item \vspace{-0.75em}
+%     \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
+%         \textbf{#1} & #2 \\ \vspace{-1em}
+%         \textit{#3} & \textit{#4} \\
+%     \end{tabularx} \vspace{-1.5em}
+% }
+
+% \newcommand{\listItemSubheading}[2]{
+%     \item
+%     \begin{tabularx}{\linewidth}{X @{\hspace{3em}} r}
+%         #1 & \textit{#2} \\
+%         % \textit{#3} & \textit{#4} \\
+%     \end{tabularx} \vspace{-1.5em}
+% }
+
+% \newcommand{\listItemContent}[1]{
+%     \item\fontsize{11pt}{13pt}\selectfont{#1} \vspace{-0.2em}
+% }
 
 \newcommand{\mailto}[3]{
     \href{mailto:#1@#2.#3}{\underline{\strut #1@#2.#3}}%
@@ -128,10 +150,10 @@
 
 %%% HEADING %%%
 \begin{center}
-    \textbf{\fontsize{25pt}{30pt}\selectfont \scshape Duc Vinh Phuc (Benjamin) Nguyen}
+    \textbf{\fontsize{26pt}{32pt}\selectfont \scshape Duc Vinh Phuc (Benjamin) Nguyen}
     
     \vspace{-1em}
-    \makebox[\textwidth][c]{\rule{0.9\textwidth}{2pt}}
+    \makebox[\textwidth][c]{\rule{0.9\textwidth}{1.75pt}}
     
     \vspace{-0.5em}
     \fontsize{11pt}{13pt}\selectfont{
@@ -143,15 +165,17 @@
             \hreftoprofile[in]{linkedin}{com}{ndvphuc27}
             \;\textbullet\;
             \hreftoprofile{github}{com}{techmoocher}
+            % \;\textbullet\;
+            % \href{https://www.techmoocher.com}{\underline{\strut techmoocher.com}}
         }
     }
 \end{center}
 
-\vspace{0em}
+\vspace{-0.25em}
 %%% EDUCATION %%%
 \section{Education}
     \begin{ListHeading}
-        \listItemHeading
+        \listItemHeadingEducation
             {Rochester Institute of Technology}{Rochester, NY}
             \begin{ListSubheading}
                 \listItemSubheading
@@ -165,7 +189,7 @@
                         }
                     \end{ListContent}
             \end{ListSubheading}
-        \listItemHeading
+        \listItemHeadingEducation
             {VNUHCM High School for the Gifted}{Ho Chi Minh City, VN}
             \begin{ListSubheading}
                 \listItemSubheading
@@ -185,6 +209,94 @@
                             Silver Award in HKICO 2025 \textit{(International)}
                         }
                     \end{ListContent}
+            \end{ListSubheading}
+    \end{ListHeading}
+
+%%% PROJECTS %%%
+\section{Projects}
+    \begin{ListHeading}
+        \listItemHeadingProjects
+            {Homelab}{May 2025 -- July 2026}
+            {Proxmox VE, Docker, Bash, Python}
+            {github.com/techmoocher/homelab}
+            \begin{ListContent}
+                \listItemContent
+                    {Engineered a virtualization environment with Proxmox VE to host over 10 services, supporting my personal learning and providing low-cost cloud-based solutions for my family.}
+                \listItemContent
+                    {Developed and coordinated Bash and Python scripts to streamline system administration and maintenance.}
+                \listItemContent
+                    {Hardened the system with firewall (pfSense), reverse proxy (Caddy), and antivirus (ClamAV).}
+            \end{ListContent}
+    \end{ListHeading}
+
+%%% EXPERIENCE %%%
+\section{Experience}
+    \begin{ListHeading}
+        \listItemHeadingExperience
+            {Math \& CS Tutor}{Oct. 2024 -- present}
+            {\href{https://schoolhouse.world/u/techmoocher}{Schoolhouse.world}}{remote}
+            \begin{ListContent}
+                \listItemContent
+                    {Provided students worldwide with personalized knowledge enrichment, homework help, and exam preparation.}
+                \listItemContent
+                    {Delivered over 56 hours of tutoring in Math and CS to 35 learners across 20 countries.}
+                \listItemContent
+                    {Mentored 1 student to achieve a 5 on AP Calculus BC and 1 student to 1410 on the SAT.}
+            \end{ListContent}
+        \listItemHeadingExperience
+            {Summer Camp Counselor}{June 2025 -- July 2025}
+            {YMCA Camp Woodstock}{Woodstock Valley, CT}
+            \begin{ListContent}
+                \listItemContent
+                    {Ensured the physical and mental well-being of 2 cabins of 10 overnight campers aged 8 to 10 years old.}
+                \listItemContent
+                    {Co-led a cabin to the prestigious Directors' Cup for fostering a respectful, responsible, and friendly environment.}
+                \listItemContent
+                    {Designed and hosted 12 daily activities, attracting and captivating up to 15 campers each.}
+                \listItemContent
+                    {Provided professional lifeguarding to swimmers and boaters during waterfront activities.}
+            \end{ListContent}
+        \listItemHeadingExperience
+            {Assistant Catechist}{Aug. 2025 -- Aug. 2026}
+            {Leo the Great division, VEYM -- Binh Hung Parish}{Ho Chi Minh City, VN}
+            \begin{ListContent}
+                \listItemContent
+                    {Co-mentored over 30 children aged 8 to 10 years old in religious study.}
+                \listItemContent
+                    {Planned and co-organized 8 community events (e.g., Mid-autumn Festival fair, Tet holiday fair), served and engaged up to 200 children each.}
+            \end{ListContent}
+    \end{ListHeading}
+
+%%% SKILLS & QUALIFICATIONS
+\section{Skills \& Qualifications}
+    \begin{ListHeading}
+        \listItemHeading
+            {Technical Skills:}
+            \begin{ListSubheading}
+                \listItemSubheading[\textbullet]
+                {
+                    \textbf{Languages:}\
+                    Java, Python, C, Bash, HTML/CSS.
+                }{}
+                \listItemSubheading[\textbullet]
+                {
+                    \textbf{Tools:}\
+                    Git, Docker, Proxmox VE.
+                }{}
+            \end{ListSubheading}
+        \listItemHeading
+            {Qualifications:}
+            \begin{ListSubheading}
+                \listItemSubheading[\textbullet]
+                {
+                    Microsoft Office Specialist -- PowerPoint, Word, Excel\
+                    \textit{(2023)}
+                }{}
+                \listItemSubheading[\textbullet]
+                {
+                    American Red Cross Waterfront Lifeguard \& AED-certified\
+                    \textit{(2024)}
+                }{}
             \end{ListSubheading}
     \end{ListHeading}
 
