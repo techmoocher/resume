@@ -12,3 +12,7 @@ that my work can help you!
 Shout-out to [jakegut/resume](https://github.com/jakegut/resume.git) for inspiration.
 
 Published under the MIT License. See [LICENSE](./LICENSE) for more.
+
+## Preview
+
+![my resume preview](./[RESUME]_Phuc-Benjamin-Nguyen.jpg)
