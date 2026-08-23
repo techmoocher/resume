@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Resume in LaTeX (US Letter - 8.5x11 in.)  %
 % Author: Duc Vinh Phuc (Benjamin) Nguyen   %
-% Last update: 2026-08-11 (UTC)             %
+% Last update: 2026-08-23 (UTC)             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[letterpaper, 12pt]{article}
@@ -77,6 +77,10 @@
 \newcommand{\listItemHeading}[1]{
     \item
     \textbf{#1}
+}
+
+\newcommand{\listItemHeadingNormal}[1]{
+    \item #1
 }
 
 \newcommand{\listItemHeadingEducation}[2]{
@@ -176,10 +180,15 @@
 \vspace{-0.25em}
 %%% SUMMARY %%%
 \section{Summary}
-    \hspace{0.5em} I'm a freshman at Bucknell University, majoring in Computer Science\
-    with hands-on experience in building software and maintaining infrastructure.\
-    I'm actively seeking professional experience in the technology industry.\
-    Besides, I'm also looking for tutoring opportunities CS, Maths, and standardized tests (e.g. SAT, AP).
+    \begin{ListHeading}
+        \listItemHeadingNormal{
+        I'm a student majoring in Computer Science at Bucknell University\
+        with hands-on experience in building and maintaining software and cloud infrastructure.\
+        I'm actively seeking professional experience in the technology industry\
+        (e.g., research, project-based internships)\
+        Besides, I'm also looking for tutoring opportunities in CS, Math, and standardized tests.
+        }
+    \end{ListHeading}
 
 %%% EDUCATION %%%
 \section{Education}
@@ -226,11 +235,11 @@
             {github.com/techmoocher/homelab}
             \begin{ListContent}
                 \listItemContent
-                    {Engineered a virtualization environment with Proxmox VE to host over 10 services, supporting my personal learning and providing low-cost cloud-based solutions for my family.}
+                    {Engineered a virtualization environment with Proxmox VE to host over 10 services (e.g., cloud storage, VPN, Git storage), supporting my personal learning and providing low-cost cloud-based applications for my family.}
                 \listItemContent
-                    {Developed and coordinated Bash and Python scripts to streamline system administration and maintenance.}
+                    {Developed and utilized Bash and Python scripts to streamline system administration and maintenance.}
                 \listItemContent
-                    {Hardened the system with firewall (pfSense), reverse proxy (Caddy), and antivirus (ClamAV).}
+                    {Hardened the system with a firewall (pfSense), reverse proxy (Caddy), and antivirus (ClamAV).}
             \end{ListContent}
     \end{ListHeading}
 
